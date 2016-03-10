@@ -56,11 +56,11 @@ def sor(A, b):
         for j in range(i+1, n):
             U[i][j] = -A[i][j]
     
-    #compute inverse matrix of D, named invD
+    #compute inverse matrix of D, named D_inv
     for i in range (0, n):
         D_inv[i][i] = 1/D[i][i]
     
-    #compute matrix T, where T = invD * (L + U)
+    #compute matrix T, where T = D_inv * (L + U)
     for i in range(0, n):
         for j in range(0, n):
             for k in range(0, n):
