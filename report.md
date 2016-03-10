@@ -22,7 +22,7 @@ Explain how you implement your `task1.py` here.
 
 Put here your picture file (Lenna.png)
 
-![Lenna.png](Lenna.png)
+![temple.jpg](temple.jpg)
 
 How many non zero element in $\Sigma$?
 
