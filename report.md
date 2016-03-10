@@ -56,7 +56,7 @@ Put here your lower and better resolution pictures.
 
 Lower resolution, when n = 30
 
-![n_30.png](n_30.png)
+![n_30 .png](n_30 .png)
 
 Better resolution, when n = 200
 
