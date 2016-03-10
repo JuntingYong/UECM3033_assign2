@@ -35,10 +35,11 @@ def lu(A,b):
        
 def sor(A, b):
     sol = []
+    # set matrix D L U D_inv and T
     D = [[0 for x in range (0,n)] for x in range (0,n)]
     L = [[0 for x in range (0,n)] for x in range (0,n)]
     U = [[0 for x in range (0,n)] for x in range (0,n)]
-    invD = [[0 for x in range (0,n)] for x in range (0,n)]
+    D_inv = [[0 for x in range (0,n)] for x in range (0,n)]
     T = [[0 for x in range (0,n)] for x in range (0,n)]
    
     #compute diagonal matrix D
@@ -57,18 +58,18 @@ def sor(A, b):
     
     #compute inverse matrix of D, named invD
     for i in range (0, n):
-        invD[i][i] = 1/D[i][i]
+        D_inv[i][i] = 1/D[i][i]
     
     #compute matrix T, where T = invD * (L + U)
     for i in range(0, n):
         for j in range(0, n):
             for k in range(0, n):
-                T[i][j] += invD[i][k]*(L[k][j] + U[k][j])
+                T[i][j] += D_inv[i][k]*(L[k][j] + U[k][j])
                 
-    #compute the spectral radius of matrix T, named pT, where pT = max(all eigenvalues)
+    #compute the spectral radius of matrix T, named pT, where pT = max alsolute number of (all eigenvalues)
     pT = max(abs(np.linalg.eigvals(T)))
     
-    #compute optimal omega for SOR method
+    #compute omega for SOR method
     omega = 2*(1 - np.sqrt(1 - ((pT)**2)))/((pT)**2)
     
     x = np.zeros_like(b)
